@@ -60,6 +60,9 @@ function setup() {
 }
 
 function draw() {
+if(backgroundImg=null){
+  background(0,0,0);
+}
 if(backgroundImg!=null){
   background(backgroundImg);
   fill("cyan");
