@@ -60,8 +60,10 @@ function setup() {
 }
 
 function draw() {
-if(backgroundImg=null){
+if(backgroundImg==null){
   background(0,0,0);
+  fill("cyan");
+  text("SCORE: "+score,700,40);
 }
 if(backgroundImg!=null){
   background(backgroundImg);
@@ -128,17 +130,17 @@ function keyPressed(){
 }
 
 async function getBackgroundImg(){
-  var response = await fetch("http://worldtimeapi.org/api/timezone/America/Los_Angeles");
+  var response = await fetch("https://worldtimeapi.org/api/timezone/America/Los_Angeles");
   var responseJSON = await response.json();
 
   var datetime = responseJSON.datetime;
   var hour = datetime.slice(11,13);
   
-  if(hour>=0600 && hour<=1900){
-      bg = "white png.png";
+  if(hour>=06 && hour<=19){
+      bg = "white.png";
   }
   else{
-      bg = "black png.png";
+      bg = "black.png";
   }
 
   backgroundImg = loadImage(bg);
